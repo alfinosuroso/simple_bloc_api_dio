@@ -119,10 +119,11 @@ class AppThemeData {
               fontWeight: FontWeight.w400,
               letterSpacing: 0.15),
           subtitle2: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w400,
-              letterSpacing: 0.1,),
+            fontSize: 12.sp,
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
+            letterSpacing: 0.1,
+          ),
           bodyText1: TextStyle(
               fontSize: 17.sp,
               color: Colors.black,
@@ -151,12 +152,11 @@ class AppThemeData {
         ),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
-            //<-- SEE HERE
-            side: const BorderSide(
-              color: AppColors.darkGrey,
-            ),
-            borderRadius: BorderRadius.circular(25.0)
-          ),
+              //<-- SEE HERE
+              side: const BorderSide(
+                color: AppColors.darkGrey,
+              ),
+              borderRadius: BorderRadius.circular(25.0)),
           color: Colors.white,
           elevation: 3,
         ));

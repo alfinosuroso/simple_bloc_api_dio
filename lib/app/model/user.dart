@@ -40,18 +40,18 @@ class UserModel {
     };
 }
 
-enum Gender { MALE, FEMALE }
+enum Gender { male, female }
 
 final genderValues = EnumValues({
-    "female": Gender.FEMALE,
-    "male": Gender.MALE
+    "female": Gender.female,
+    "male": Gender.male
 });
 
-enum Status { ACTIVE, INACTIVE }
+enum Status { active, inactive }
 
 final statusValues = EnumValues({
-    "active": Status.ACTIVE,
-    "inactive": Status.INACTIVE
+    "active": Status.active,
+    "inactive": Status.inactive
 });
 
 class EnumValues<T> {

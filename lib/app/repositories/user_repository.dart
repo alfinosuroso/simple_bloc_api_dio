@@ -50,19 +50,76 @@ class UserRepository extends BaseUserRepository {
   }
 
   @override
-  Future<void> deleteUser(int id) {
-    throw UnimplementedError();
+  Future<UserModel> deleteUser(String id) async {
+    try {
+      final res = await Api().dio.delete('/$id');
+      debugPrint('Status code: ${res.statusCode}');
+      debugPrint('Data: ${res.data}');
+
+      final model = UserModel.fromJson(res.data);
+
+      if (res.statusCode == 200) {
+        return model;
+      } else {
+        throw "Error";
+      }
+    } catch (error, stacktrace) {
+      if (kDebugMode) {
+        debugPrint('Exception occured: $error stackTrace: $stacktrace');
+      }
+      throw 'Unauthorized';
+    }
   }
 
   @override
-  Future<void> postUser() {
-    // TODO: implement postUser
-    throw UnimplementedError();
+  Future<UserModel> postUser(
+      String name, String gender, String email, String status) async {
+    try {
+      final res = await Api().dio.post('', data: {
+        "name": name,
+        "gender": gender,
+        "email": email,
+        "status": status
+      });
+      debugPrint('Status code: ${res.statusCode}');
+      debugPrint('Data: ${res.data}');
+
+      final model = UserModel.fromJson(res.data);
+
+      if (res.statusCode == 200) {
+        return model;
+      } else {
+        throw "Error";
+      }
+    } catch (error, stacktrace) {
+      if (kDebugMode) {
+        debugPrint('Exception occured: $error stackTrace: $stacktrace');
+      }
+      throw 'Unauthorized';
+    }
   }
 
-  // @override
-  // Future<void> updateUser(int id, [String name, email]) {
-  //   // TODO: implement updateUser
-  //   throw UnimplementedError();
-  // }
+  @override
+  Future<UserModel> updateUser(
+      String id, String name, String email, String status) async {
+    try {
+      final res = await Api().dio.patch('/$id',
+          data: {"name": name, "email": email, "status": status});
+      debugPrint('Status code: ${res.statusCode}');
+      debugPrint('Data: ${res.data}');
+
+      final model = UserModel.fromJson(res.data);
+
+      if (res.statusCode == 200) {
+        return model;
+      } else {
+        throw "Error";
+      }
+    } catch (error, stacktrace) {
+      if (kDebugMode) {
+        debugPrint('Exception occured: $error stackTrace: $stacktrace');
+      }
+      throw 'Unauthorized';
+    }
+  }
 }

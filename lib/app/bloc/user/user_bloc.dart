@@ -12,8 +12,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   UserBloc(this._repo) : super(UserInitial()) {
     on<GetAllUserEvent>((event, emit) async {
+      emit(UserLoading());
       try {
-        emit(UserLoading());
         final model = await _repo.getAllUser();
         emit(UserLoaded(model));
       } catch (e) {
@@ -23,9 +23,44 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     });
 
     on<GetUserByIdEvent>((event, emit) async {
+      emit(UserLoading());
       try {
-        emit(UserLoading());
         final model = await _repo.getUserById(event.id);
+        emit(UserDetailLoaded(model));
+      } catch (e) {
+        debugPrint(e.toString());
+        emit(UserError(e.toString()));
+      }
+    });
+
+    on<PostUserEvent>((event, emit) async {
+      emit(UserLoading());
+      try {
+        final model = await _repo.postUser(
+            event.name, event.gender, event.email, event.status);
+        emit(UserDetailLoaded(model));
+      } catch (e) {
+        debugPrint(e.toString());
+        emit(UserError(e.toString()));
+      }
+    });
+
+    on<UpdateUserEvent>((event, emit) async {
+      emit(UserLoading());
+      try {
+        final model = await _repo.updateUser(
+            event.id.toString(), event.name, event.email, event.status);
+        emit(UserDetailLoaded(model));
+      } catch (e) {
+        debugPrint(e.toString());
+        emit(UserError(e.toString()));
+      }
+    });
+
+    on<DeleteUserEvent>((event, emit) async {
+      emit(UserLoading());
+      try {
+        final model = await _repo.deleteUser(event.id.toString());
         emit(UserDetailLoaded(model));
       } catch (e) {
         debugPrint(e.toString());

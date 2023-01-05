@@ -7,7 +7,7 @@ class Api {
   late Map<String, dynamic> headers = {
     "Accept": "application/json",
     'Content-Type': 'application/json',
-    'Authentication': 'Bearer $token'
+    'Authorization': 'Bearer $token'
   };
 
   late Dio dio = Dio(BaseOptions(

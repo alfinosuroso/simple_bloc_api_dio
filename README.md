@@ -8,8 +8,8 @@ Content here :
 - Search Delegate
 
 ## Getting Started
-
-flutter pub get and ready to go!
+- clone this repo
+- flutter pub get and ready to go!
 
 A few resources to get you started if this is your first Flutter project:
 

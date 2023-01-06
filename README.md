@@ -1,10 +1,15 @@
 # simple_bloc_api_dio
 
-A new Flutter project.
+Content here :
+- BLOC State Management
+- Dio HTTP Client (with Authorization)
+- CRUD using User Fake API (Gorest) -> https://gorest.co.in/
+- User by ID
+- Search Delegate
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+flutter pub get and ready to go!
 
 A few resources to get you started if this is your first Flutter project:
 

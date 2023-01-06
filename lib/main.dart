@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_bloc_api_dio/app/common/app_theme_data.dart';
+import 'package:simple_bloc_api_dio/app/repositories/search_repository.dart';
 import 'package:simple_bloc_api_dio/app/repositories/user_repository.dart';
 import 'package:simple_bloc_api_dio/app/screens/user_page.dart';
 import 'package:sizer/sizer.dart';
@@ -20,7 +21,10 @@ class MyApp extends StatelessWidget {
           providers: [
             RepositoryProvider(
               create: (context) => UserRepository(),
-            )
+            ),
+            RepositoryProvider(
+              create: (context) => SearchRepository(),
+            ),
           ],
           child: MaterialApp(
             title: 'Simple Bloc Api Dio',

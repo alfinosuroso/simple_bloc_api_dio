@@ -198,7 +198,7 @@ class UserSearch extends SearchDelegate<List> {
               margin: const EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 children: [
-                  SizedBox(height: 4.h,),
+                  SizedBox(height: 3.h,),
                   Expanded(
                     child: ListView.separated(
                         itemCount: state.userModel.length,
